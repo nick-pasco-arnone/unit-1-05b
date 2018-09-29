@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//created on sept 28
+//created by nick pasco-arnone
+//created for ICS20
+//this program calculates the price of a pizza
+
+import PlaygroundSupport
+import UIKit
+
+class ViewController : UIViewController {
+    
+
+
+let instructionLabel = UILabel()
+let diameterLabel = UILabel()
+let diameterTextField = UITextField()
+let calculateButton = UIButton()
+let priceLabel = UILabel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.976470589637756, green: 0.850980401039124, blue: 0.549019634723663, alpha: 1.0)
+        self.view = view
+        
+        
+        instructionLabel.text = "calculate the price of the pizza "
+        view.addSubview(instructionLabel)
+        instructionLabel.translatesAutoresizingMaskIntoConstraints = false
+        instructionLabel.topAnchor.constraint(equalTo:view.topAnchor, constant: 20).isActive = true
+        instructionLabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+        
+        diameterLabel.text = "enter diameter"
+        view.addSubview(diameterLabel)
+        diameterLabel.translatesAutoresizingMaskIntoConstraints = false
+        diameterLabel.topAnchor.constraint(equalTo:instructionLabel.bottomAnchor, constant: 20).isActive = true
+        diameterLabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+        
+        diameterTextField.borderStyle = UITextBorderStyle.roundedRect
+        diameterTextField.placeholder = "in cm  "
+        view.addSubview(diameterTextField)
+        diameterTextField.translatesAutoresizingMaskIntoConstraints = false
+        diameterTextField.topAnchor.constraint(equalTo:diameterLabel.bottomAnchor, constant: 20).isActive = true
+        diameterTextField.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+        
+        
+        calculateButton.setTitle("click here for price ", for: .normal)
+        calculateButton.titleLabel?.textAlignment = .center
+        calculateButton.setTitleColor(.blue, for: .normal)
+        calculateButton.addTarget(self, action: #selector(calculatePrice), for: .touchUpInside)
+        view.addSubview(calculateButton)
+        calculateButton.translatesAutoresizingMaskIntoConstraints = false
+        calculateButton.topAnchor.constraint(equalTo:diameterTextField.bottomAnchor, constant: 20).isActive = true
+        
+        priceLabel.text = nil 
+        view.addSubview(priceLabel)
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.topAnchor.constraint(equalTo:calculateButton.bottomAnchor, constant: 20).isActive = true
+        priceLabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+    }
+    @objc func calculatePrice() {
+        
+        let diameter : Float = Float(diameterTextField.text!)!
+        let hst : Float = (diameter / 2 + 1.75) * 0.13
+        let price = ((diameter / 2) + 1.75) + hst
+
+
+        
+        priceLabel.text = "the price is: \(price)"
+        
+    }
+    
+     var perfersStatusBarHidden: Bool {
+        return true 
+    }
+    
+}
+
+PlaygroundPage.current.liveView = ViewController()
+</string>
+			<key>ModifiedRange</key>
+			<string>{145, 3242}</string>
+			<key>OriginalContent</key>
+			<string>show("What is your name?")
+
+let name = ask("Name")
+
+show("Hi " + name)
+
+</string>
+			<key>OriginalRange</key>
+			<string>{145, 72}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Answers.playgroundchapter/Pages/Text.playgroundpage/Contents.swift</string>
+</dict>
+</plist>
